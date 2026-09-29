@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GrowGov AI – AI-Enabled Competency Development Platform | iGOT Karmayogi</title>
+  <meta name="description" content="AI-Enabled Learning & Competency Development Platform for Government Employees and iGOT Karmayogi Ecosystem.">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Favicon / Web App Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+</head>
+<body>
+
+  <!-- =========================================================================
+       PAGE 1: LOGIN VIEW (EMPLOYEE / ADMIN LOGIN)
+       ========================================================================= -->
+  <div id="login-page-view" class="login-page-container">
+    <!-- Left Hero Banner with Government Branding -->
+    <div class="login-hero">
+      <div class="login-hero-header">
+        <div class="brand-logo-icon">🏛️</div>
+        <div>
+          <h2 style="color: #ffffff; font-size: 20px; font-weight: 800; letter-spacing: -0.02em;">GrowGov AI</h2>
+          <div class="govt-badge" style="margin-top: 4px;">
+            <div class="tricolor-dot"></div>
+            <span>iGOT Karmayogi Ecosystem • Capacity Building Commission</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-hero-content">
+        <h1 class="login-hero-title">Empowering Government Employees Through Intelligent Learning</h1>
+        <p class="login-hero-desc">
+          An AI-powered competency framework aligning civil service cadres with National Occupational Standards, predictive skill gap detection, and personalized learning pathways.
+        </p>
+
+        <div class="login-features-list">
+          <div class="login-feature-item">
+            <div class="login-feature-icon">✓</div>
+            <div class="login-feature-text">
+              <strong>Role & Task Mapping (FRAC Model)</strong>
+              <span>Automated translation from official duty tasks to technical competencies</span>
+            </div>
+          </div>
+          <div class="login-feature-item">
+            <div class="login-feature-icon">✓</div>
+            <div class="login-feature-text">
+              <strong>Predictive Skill Gap Detection</strong>
+              <span>Calculates precise capability deficits against cadre benchmarks</span>
+            </div>
+          </div>
+          <div class="login-feature-item">
+            <div class="login-feature-icon">✓</div>
+            <div class="login-feature-text">
+              <strong>Bloom's Taxonomy AI MCQ Generator</strong>
+              <span>Transforms ministry PDFs & policy circulars into adaptive assessments</span>
+            </div>
+          </div>
+          <div class="login-feature-item">
+            <div class="login-feature-icon">✓</div>
+            <div class="login-feature-text">
+              <strong>Real-Time Competency Trajectory</strong>
+              <span>Post-assessment leap verification synced across personal & admin portals</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-hero-footer">
+        <div>National Informatics Centre (NIC) & MoSPI Compliant</div>
+        <div>Ministry of Personnel, Public Grievances & Pensions</div>
+      </div>
+    </div>
+
+    <!-- Right Login Card -->
+    <div class="login-form-wrapper">
+      <div class="login-card">
+        <div class="login-card-header">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+            <span style="font-size: 22px;">🇮🇳</span>
+            <span style="font-size: 12px; font-weight: 800; letter-spacing: 0.06em; color: var(--accent-cyan); text-transform: uppercase;">e-Pramaan Single Sign-On</span>
+          </div>
+          <h2>Welcome Back</h2>
+          <p>Sign in to access your Karmayogi competency development dashboard</p>
+        </div>
+
+        <!-- Role Toggle Tabs -->
+        <div class="login-role-tabs">
+          <button type="button" class="role-tab-btn active" id="role-tab-emp" onclick="GrowGovApp.selectRoleTab('employee')">
+            👤 Employee Portal
+          </button>
+          <button type="button" class="role-tab-btn" id="role-tab-admin" onclick="GrowGovApp.selectRoleTab('admin')">
+            🛡️ Ministry Admin
+          </button>
+        </div>
+
+        <!-- Official Cadre Quick Sign-In -->
+        <div class="demo-accounts-box">
+          <div class="demo-accounts-title">
+            <span>🔑</span> Official Cadre Sign-In
+          </div>
+          <div class="demo-account-buttons">
+            <button type="button" class="demo-fill-btn" onclick="GrowGovApp.quickFillDemo('employee')">
+              <span>👤 Rahul Sharma (Statistical Officer)</span>
+            </button>
+            <button type="button" class="demo-fill-btn" onclick="GrowGovApp.quickFillDemo('admin')">
+              <span>🛡️ Dr. Sunita Rao (MoSPI Director)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Login Form -->
+        <form onsubmit="GrowGovApp.handleLogin(event)" style="display: flex; flex-direction: column; gap: 18px;">
+          <input type="hidden" id="login-role-hidden" value="employee">
+
+          <div class="form-group">
+            <label class="form-label" for="login-email">Employee ID or Gov Email</label>
+            <input type="text" id="login-email" class="form-input" value="rahul.sharma@mospi.gov.in" required>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label">
+              <label for="login-password">Password</label>
+              <a href="#" style="font-size: 11.5px; color: var(--primary-blue); font-weight: 600;" onclick="window.showToast('Default password: password123')">Forgot Password?</a>
+            </div>
+            <input type="password" id="login-password" class="form-input" value="password123" required>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; font-size: 13px;">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-secondary);">
+              <input type="checkbox" checked style="accent-color: var(--primary-blue);"> Remember this terminal
+            </label>
+            <span style="font-size: 11.5px; color: #10b981; font-weight: 600;">SSL 256-Bit Encrypted</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 4px;">
+            Sign In to Karmayogi Portal &rarr;
+          </button>
+        </form>
+
+        <div style="text-align: center; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border-light); padding-top: 16px;">
+          Protected under Digital Personal Data Protection (DPDP) Act, 2023.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       AUTHENTICATED APPLICATION WRAPPER (PAGES 2 TO 11)
+       ========================================================================= -->
+  <div id="authenticated-app-view" style="display: flex; width: 100vw; min-height: 100vh;">
+
+    <!-- =======================================================================
+         GLOBAL SIDEBAR
+         ======================================================================= -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-wrapper">
+          <div class="brand-logo-icon">🏛️</div>
+          <div class="brand-titles">
+            <div class="brand-title">GrowGov <span class="ai-tag">AI</span></div>
+            <div class="brand-sub">iGOT Karmayogi</div>
+          </div>
+        </div>
+        <div class="govt-badge">
+          <div class="tricolor-dot"></div>
+          <span>Govt of India • iGOT Karmayogi</span>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Core Competencies</div>
+
+        <a class="nav-item active" data-page="dashboard" id="nav-dashboard">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a class="nav-item" data-page="profile-analysis" id="nav-profile">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+          <span>My Profile</span>
+        </a>
+
+        <a class="nav-item" data-page="competency-mapping" id="nav-mapping">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+          <span>Competency Mapping</span>
+        </a>
+
+        <a class="nav-item" data-page="skill-gap" id="nav-skillgap">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          <span>Skill Gap Analysis</span>
+          <span class="nav-badge badge-red" id="sidebar-crit-badge">1 Critical</span>
+        </a>
+
+        <a class="nav-item" data-page="recommendations" id="nav-recommendations">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          <span>Recommendations</span>
+          <span class="nav-badge badge-blue">5 Courses</span>
+        </a>
+
+        <div class="nav-section-title" style="margin-top: 12px;">AI Assessment Hub</div>
+
+        <a class="nav-item" data-page="mcq-generator" id="nav-mcq">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+          <span>AI MCQ Generator</span>
+        </a>
+
+        <a class="nav-item" data-page="my-progress" id="nav-progress">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+          <span>My Progress</span>
+        </a>
+
+        <!-- ADMINISTRATION SECTION (ADMIN-ONLY) -->
+        <div id="sidebar-admin-section" class="admin-only" style="display: none;">
+          <div class="nav-section-title" id="nav-title-admin" style="margin-top: 12px;">Administration</div>
+
+          <a class="nav-item" data-page="admin-dashboard" id="nav-admin">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            <span>Admin Dashboard</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Sidebar User Footer -->
+      <div class="sidebar-footer">
+        <div class="officer-card">
+          <div class="officer-avatar" id="sidebar-user-avatar">
+            RS
+            <div class="online-indicator"></div>
+          </div>
+          <div class="officer-info">
+            <span class="officer-name" id="sidebar-user-name">Rahul Sharma</span>
+            <span class="officer-role" id="sidebar-user-role">Statistical Officer, MoSPI</span>
+          </div>
+        </div>
+
+        <button class="logout-btn" onclick="GrowGovStore.logout(); GrowGovApp.navigateTo('login')">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+          <span>Sign Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- =======================================================================
+         MAIN CONTENT WRAPPER
+         ======================================================================= -->
+    <div class="main-wrapper">
+      <!-- TOP HEADER -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="menu-toggle" id="mobile-menu-toggle">☰</button>
+          <div class="header-breadcrumb">
+            <span>GrowGov AI</span>
+            <span class="separator">/</span>
+            <span class="current" id="breadcrumb-current-page">Employee Dashboard</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Reset Baseline Action -->
+          <button class="btn btn-secondary btn-sm" onclick="GrowGovStore.resetToDemoBaseline()" title="Reset competency scores back to baseline">
+            🔄 Reset Baseline
+          </button>
+
+          <!-- Notifications Icon -->
+          <div class="header-action-icon" onclick="window.showToast('Critical Skill Gap Alert: Data Visualization is 40% below target.', 'warning')">
+            🔔
+            <div class="badge">1</div>
+          </div>
+
+          <!-- Subtle Divider -->
+          <div class="header-divider"></div>
+
+          <!-- User Profile Widget -->
+          <div class="header-profile" onclick="GrowGovApp.navigateTo('profile-analysis')">
+            <div class="header-profile-avatar">RS</div>
+            <div class="header-profile-info">
+              <span class="header-profile-name">Rahul Sharma</span>
+              <span class="header-profile-role">Statistical Officer</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT BODY (MULTI-PAGE VIEWS) -->
+      <main class="content-body">
+
+        <!-- =====================================================================
+             PAGE 2: EMPLOYEE DASHBOARD
+             ===================================================================== -->
+        <section id="page-dashboard" class="page-view active">
+          <!-- Welcome Banner -->
+          <div class="welcome-banner">
+            <div class="welcome-text">
+              <h2>Namaste, Rahul Sharma 🙏</h2>
+              <p>Statistical Officer • Ministry of Statistics and Programme Implementation (MoSPI)</p>
+              <div class="welcome-badges">
+                <span class="officer-tag">🏛️ MoSPI Group 'B'</span>
+                <span class="officer-tag">🆔 GOV-STAT-2021-089</span>
+                <span class="officer-tag">⭐ Karmayogi Cadre Tier 3</span>
+                <span class="officer-tag" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">✓ iGOT Synced</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+              <button class="btn btn-accent btn-sm" onclick="GrowGovApp.navigateTo('profile-analysis')">
+                <span>✨ AI Profile Check</span>
+              </button>
+              <button class="btn btn-primary btn-sm" onclick="GrowGovApp.navigateTo('skill-gap')">
+                <span>View Skill Gaps &rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 5 Top Stat Metric Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon blue">📊</div>
+              <div class="stat-details">
+                <span class="stat-label">Overall Competency</span>
+                <span class="stat-value" id="dash-overall-comp">78%</span>
+                <span class="stat-subtext positive">↑ +4% this quarter</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon red">⚠️</div>
+              <div class="stat-details">
+                <span class="stat-label">Critical Skill Gaps</span>
+                <span class="stat-value" id="dash-critical-gaps" style="color: #dc2626;">03</span>
+                <span class="stat-subtext" style="color: #b91c1c;">Requires immediate action</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon amber">📚</div>
+              <div class="stat-details">
+                <span class="stat-label">Recommended Courses</span>
+                <span class="stat-value" id="dash-recommended-courses">05</span>
+                <span class="stat-subtext">AI Matched to Gaps</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon green">🎓</div>
+              <div class="stat-details">
+                <span class="stat-label">Courses Completed</span>
+                <span class="stat-value" id="dash-completed-courses">02</span>
+                <span class="stat-subtext positive">iGOT Karmayogi Verified</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon purple">🎯</div>
+              <div class="stat-details">
+                <span class="stat-label">Assessment Score</span>
+                <span class="stat-value" id="dash-assessment-score">82%</span>
+                <span class="stat-subtext">Avg Accuracy Rating</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dashboard Two-Column Grid -->
+          <div class="dashboard-grid">
+            <!-- Left Column: Competency Overview & Activity -->
+            <div>
+              <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                  <div>
+                    <h3 class="card-title">
+                      <span>📈</span> My Competency Overview
+                    </h3>
+                    <div class="card-subtitle">Cadre benchmarks for Statistical Officer role in MoSPI</div>
+                  </div>
+                  <button class="btn btn-secondary btn-sm" onclick="GrowGovApp.navigateTo('skill-gap')">
+                    Detailed Matrix &rarr;
+                  </button>
+                </div>
+
+                <!-- Progress bars container populated by JS -->
+                <div id="dashboard-competencies-list"></div>
+              </div>
+
+              <!-- Recent Learning Activity Card -->
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <span>🕒</span> Recent Learning Activity
+                  </h3>
+                  <span class="badge badge-nogap">3 Completed</span>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <div>
+                      <div style="font-weight: 700; font-size: 13.5px; color: #0f172a;">National Accounts & Industrial Statistics Basics</div>
+                      <div style="font-size: 11.5px; color: #64748b;">Completed 14 Sep 2026 • MoSPI Training Academy</div>
+                    </div>
+                    <span class="badge badge-nogap">Passed 88%</span>
+                  </div>
+
+                  <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <div>
+                      <div style="font-weight: 700; font-size: 13.5px; color: #0f172a;">Cyber Security & Cyber Hygiene for Central Ministries</div>
+                      <div style="font-size: 11.5px; color: #64748b;">Completed 28 Aug 2026 • NIC CERT-In Certified</div>
+                    </div>
+                    <span class="badge badge-nogap">Passed 92%</span>
+                  </div>
+
+                  <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #eff6ff; border-radius: 8px; border: 1px solid #bfdbfe;">
+                    <div>
+                      <div style="font-weight: 700; font-size: 13.5px; color: #1e40af;">Advanced Data Visualization & Ministry Dashboards</div>
+                      <div style="font-size: 11.5px; color: #3b82f6;">In Progress • Module 3 of 4</div>
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="GrowGovApp.navigateTo('recommendations')">Resume</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Gauges & Urgent Callouts -->
+            <div>
+              <!-- Critical Skill Gap Focus Card -->
+              <div id="dash-critical-focus-card"></div>
+
+              <!-- Learning Progress Gauge -->
+              <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <span>🎯</span> Learning Progress
+                  </h3>
+                  <span class="badge badge-blue">Annual Target</span>
+                </div>
+                <!-- Donut Chart Container -->
+                <div id="dash-donut-chart-container"></div>
+              </div>
+
+              <!-- Quick Actions Card -->
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <span>⚡</span> Quick Actions
+                  </h3>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <button class="btn btn-secondary" style="justify-content: flex-start;" onclick="GrowGovApp.navigateTo('profile-analysis')">
+                    <span>🔍</span> Run AI Profile Analysis
+                  </button>
+                  <button class="btn btn-secondary" style="justify-content: flex-start;" onclick="GrowGovApp.navigateTo('competency-mapping')">
+                    <span>🗺️</span> View Role & Task Mapping
+                  </button>
+                  <button class="btn btn-secondary" style="justify-content: flex-start;" onclick="GrowGovApp.navigateTo('mcq-generator')">
+                    <span>🤖</span> Generate MCQs from Policy PDF
+                  </button>
+                  <button class="btn btn-secondary" style="justify-content: flex-start;" onclick="GrowGovApp.navigateTo('my-progress')">
+                    <span>📈</span> View My Progress & Trajectory
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- =====================================================================
+             PAGE 3: AI PROFILE ANALYSIS
+             ===================================================================== -->
+        <section id="page-profile-analysis" class="page-view">
+          <div class="page-title-bar">
+            <div class="page-title-group">
+              <h1>AI Profile & Cadre Competency Analysis</h1>
+              <p>Simulate intelligent natural language parsing of employee responsibilities against the MoSPI Competency Framework</p>
+            </div>
+            <button class="btn btn-primary" id="btn-run-profile-analysis" onclick="runAIProfileAnalysis()">
+              <span>✨ ANALYZE MY PROFILE</span>
+            </button>
+          </div>
+
+          <div class="profile-analysis-grid">
+            <!-- Left Side: Profile Form Fields -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <span>👤</span> Employee Cadre Information
+                </h3>
+                <span class="badge badge-blue">Verified MoSPI</span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 16px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                  <div class="form-group">
+                    <label class="form-label" for="profile-name">Full Name</label>
+                    <input type="text" id="profile-name" class="form-input" value="Rahul Sharma">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="profile-empid">Employee ID</label>
+                    <input type="text" id="profile-empid" class="form-input" value="GOV-STAT-2021-089" readonly style="background: #f8fafc;">
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px;">
+                  <div class="form-group">
+                    <label class="form-label" for="profile-dept">Ministry / Department</label>
+                    <input type="text" id="profile-dept" class="form-input" value="Ministry of Statistics and Programme Implementation">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="profile-role">Job Role</label>
+                    <input type="text" id="profile-role" class="form-input" value="Statistical Officer">
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                  <div class="form-group">
+                    <label class="form-label" for="profile-exp">Experience</label>
+                    <input type="text" id="profile-exp" class="form-input" value="5 Years">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="profile-qual">Qualification</label>
+                    <input type="text" id="profile-qual" class="form-input" value="M.Sc. Statistics">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="profile-responsibilities">Key Responsibilities / Official Tasks</label>
+                  <textarea id="profile-responsibilities" class="form-textarea" rows="3">Large-scale survey data analysis, official quarterly GDP reports, statistical modeling for policy inputs, district survey coordination, statistical releases</textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="profile-skills">Current Skills / Tools</label>
+                  <textarea id="profile-skills" class="form-textarea" rows="2">Descriptive Statistics, Survey Sampling, MS Excel (Advanced), Basic Python, Report Writing</textarea>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="profile-training">Previous Training / iGOT Certifications</label>
+                  <input type="text" id="profile-training" class="form-input" value="iGOT Karmayogi Induction (2021), National Accounts Basics (2022)">
+                </div>
+
+                <button type="button" class="btn btn-accent btn-lg" onclick="runAIProfileAnalysis()" style="margin-top: 8px;">
+                  <span>🤖 ANALYZE MY PROFILE WITH AI</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Side: AI Reasoning Stepper & Output -->
+            <div>
+              <!-- AI Stepper (Shown during calculation) -->
+              <div id="ai-analysis-stepper" style="display: none; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 14px; padding: 24px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div class="pulse-dot"></div>
+                  <strong style="color: #1e40af; font-size: 15px;">AI Competency Reasoning Engine Running...</strong>
+                </div>
+                <div id="ai-step-text" style="font-size: 13.5px; color: #1e3a8a; font-family: monospace;">
+                  Initializing task decomposition...
+                </div>
+              </div>
+
+              <!-- AI Output Card (Results) -->
+              <div class="ai-output-box" id="ai-profile-analysis-output">
+                <div class="ai-status-banner">
+                  <span>✨</span>
+                  <span>AI Profile Analysis Complete</span>
+                </div>
+                <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 8px 12px; margin-bottom: 14px; font-size: 11.5px; color: #1e40af; display: flex; align-items: center; gap: 8px;">
+                  <span>⚙️</span>
+                  <span><strong>Multi-Input Synthesis:</strong> Role Requirements + Current Skills + Training History + Assessment Performance</span>
+                </div>
+
+                <div class="ai-section">
+                  <div class="ai-section-title">
+                    <span>🏛️</span> Detected Role & Classification
+                  </div>
+                  <div style="font-size: 16px; font-weight: 800; color: #0f172a;">
+                    Statistical Officer (MoSPI Group 'B' Gazetted)
+                  </div>
+                  <div style="font-size: 12px; color: #64748b;">
+                    Aligned with National Occupational Standards (NOS) Code: STAT-OFF-04
+                  </div>
+                </div>
+
+                <div class="ai-section">
+                  <div class="ai-section-title">
+                    <span>📋</span> Major Tasks Identified from Profile
+                  </div>
+                  <div class="chips-container">
+                    <span class="task-chip">Analyze Government Data</span>
+                    <span class="task-chip">Prepare Reports & Releases</span>
+                    <span class="task-chip">Use Statistical Tools & Sampling</span>
+                    <span class="task-chip">Support Policy Planning</span>
+                  </div>
+                </div>
+
+                <div class="ai-section">
+                  <div class="ai-section-title">
+                    <span>🎯</span> Required Competencies Benchmark
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="badge badge-blue">Statistical Analysis: 80%</span>
+                    <span class="badge badge-blue">Data Visualization: 80%</span>
+                    <span class="badge badge-blue">Digital Governance: 75%</span>
+                    <span class="badge badge-blue">Data Management: 75%</span>
+                    <span class="badge badge-blue">Communication: 80%</span>
+                  </div>
+                </div>
+
+                <div class="ai-section">
+                  <div class="ai-section-title">
+                    <span>⚠️</span> Potential Skill Gaps Detected
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 10px 14px; border-radius: 8px; font-size: 13px; color: #991b1b;">
+                      <strong>🚨 Data Visualization (Critical Gap: 40%)</strong><br>
+                      Current: 40% vs Required: 80%. Profile lacks advanced Power BI, Tableau, and dashboarding experience.
+                    </div>
+                    <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 10px 14px; border-radius: 8px; font-size: 13px; color: #92400e;">
+                      <strong>⚠️ Digital Governance (High Gap: 20%)</strong><br>
+                      Current: 55% vs Required: 75%. Requires modern eOffice 7.0 workflow certification.
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                  <button class="btn btn-primary" style="flex: 1;" onclick="GrowGovApp.navigateTo('competency-mapping')">
+                    Proceed to Competency Mapping &rarr;
+                  </button>
+                  <button class="btn btn-secondary" onclick="GrowGovApp.navigateTo('skill-gap')">
+                    Skill Gap Table
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- =====================================================================
+             PAGE 4: COMPETENCY MAPPING (VISUAL FLOW)
+             ===================================================================== -->
+        <section id="page-competency-mapping" class="page-view">
+          <div class="page-title-bar">
+            <div class="page-title-group">
+              <h1>Competency Mapping Architecture</h1>
+              <p>Visual hierarchical relationship: Role &rarr; Tasks &rarr; Competencies &rarr; Skills under the Karmayogi FRAC Model</p>
+            </div>
+            <div class="page-actions">
+              <span class="badge badge-blue">Role: Statistical Officer</span>
+              <button class="btn btn-primary btn-sm" onclick="GrowGovApp.navigateTo('skill-gap')">
+                View Skill Gap Matrix &rarr;
+              </button>
+            </div>
+          </div>
+
+          <div class="card" style="margin-bottom: 24px;">
+            <div style="font-size: 13px; color: #475569; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between;">
+              <span>💡 <em>Hover over any card to highlight connected competencies and skills across the hierarchy.</em></span>
+              <span style="font-weight: 700; color: #b91c1c;">● Highlighted: Critical Gap Pathway (Data Visualization)</span>
+            </div>
+
+            <!-- Visual Flow Mapping Columns -->
+            <div class="mapping-flow-container">
+              <div class="mapping-columns-grid" id="competency-mapping-columns">
+                <!-- Injected via JavaScript renderCompetencyMapping -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Mapping Summary Highlights -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+            <div class="card" style="border-left: 4px solid #1d4ed8;">
+              <h4 style="font-size: 14px; margin-bottom: 6px;">1. Task-to-Competency Mapping</h4>
+              <p style="font-size: 12.5px;">Every routine operational task (e.g. Preparing Reports) maps directly to behavioral and functional competencies.</p>
+            </div>
+            <div class="card" style="border-left: 4px solid #ef4444;">
+              <h4 style="font-size: 14px; margin-bottom: 6px; color: #b91c1c;">2. Critical Gap Pinpoint</h4>
+              <p style="font-size: 12.5px;">The task <strong>"Prepare Reports"</strong> requires <strong>Power BI & Tableau</strong> skills, currently missing in Rahul's profile.</p>
+            </div>
+            <div class="card" style="border-left: 4px solid #10b981;">
+              <h4 style="font-size: 14px; margin-bottom: 6px; color: #047857;">3. iGOT Karmayogi Integration</h4>
+              <p style="font-size: 12.5px;">Directly correlates with the Framework for Roles, Activities and Competencies (FRAC) guidelines.</p>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- =====================================================================
+             PAGE 5: SKILL GAP ANALYSIS (KEY REQUIREMENT)
+             ===================================================================== -->
+        <section id="page-skill-gap" class="page-view">
+          <div class="page-title-bar">
+            <div class="page-title-group">
+              <h1>Skill Gap Analysis & Capability Deficit</h1>
+              <p>Automated evaluation: Gap (%) = Required Benchmark Level (%) − Current Competency Level (%)</p>
+            </div>
+            <button class="btn btn-primary" onclick="GrowGovApp.navigateTo('recommendations')">
+              <span>Generate AI Learning Recommendations &rarr;</span>
+            </button>
+          </div>
+
+          <!-- Formula Banner -->
+          <div class="gap-formula-card">
+            <div class="formula-display">
+              <span>📐 Evaluation Formula:</span>
+              <span class="formula-pill">Competency Gap = Required Level − Current Level</span>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="badge badge-critical">Critical (&ge;30%)</span>
+              <span class="badge badge-high">High (20–29%)</span>
+              <span class="badge badge-medium">Medium (10–19%)</span>
+              <span class="badge badge-future">Future (1–9%)</span>
+              <span class="badge badge-nogap">No Gap (0%)</span>
+            </div>
+          </div>
+
+          <!-- Table & Chart Cards -->
+          <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; margin-bottom: 24px;">
+            <!-- Comparison Table -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <span>📋</span> Competency Gap Evaluation Table
+                </h3>
+                <span class="badge badge-critical">1 Critical Deficit</span>
+              </div>
+
+              <div style="overflow-x: auto;">
+                <table class="gap-table">
+                  <thead>
+                    <tr>
+                      <th>Competency</th>
+                      <th>Current</th>
+                      <th>Required</th>
+                      <th>Gap</th>
+                      <th>Priority</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="skill-gap-tbody">
+                    <!-- Injected dynamically via renderSkillGapAnalysis -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Dual Bar Comparison Chart -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <span>📊</span> Current vs Required Benchmark
+                </h3>
+                <span class="badge badge-blue">Visual Delta</span>
+              </div>
+
+              <!-- SVG Dual Bar Comparison Chart Container -->
+              <div id="skill-gap-chart-container"></div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- =====================================================================
+             PAGE 6: AI LEARNING RECOMMENDATIONS
+             ===================================================================== -->
+        <section id="page-recommendations" class="page-view">
+          <div class="page-title-bar">
+            <div class="page-title-group">
+              <h1>AI Personalized Learning Recommendations</h1>
+              <p>Adaptive courses generated from identified competency deficits with transparent reasoning</p>
+            </div>
+            <span class="badge badge-blue">Algorithm: Skill-Deficit Weighted Matching</span>
+          </div>
+
+          <!-- Recommendations Grid Container -->
+          <div class="recommendations-grid" id="recommendations-cards-grid">
+            <!-- Dynamically populated via renderRecommendations -->
+          </div>
+        </section>
+
+
+        <!-- =====================================================================
+             PAGE 7: AI MCQ GENERATOR
+             ===================================================================== -->
+        <section id="page-mcq-generator" class="page-view">
+          <div class="page-title-bar">
+            <div class="page-title-group">
+              <h1>AI Adaptive MCQ Generator</h1>
+              <p>Transform official government training material into Bloom's taxonomy aligned assessments</p>
+            </div>
+            <span class="badge badge-blue">Bloom's Taxonomy Engine v2.4</span>
+          </div>
+
+          <!-- 1. Input View: Upload and Parameters Form -->
+          <div id="mcq-input-view" class="mcq-gen-grid">
+            <!-- Left Side: Upload Learning Material -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <span>📤</span> Upload Learning Material
+                </h3>
+                <span class="badge badge-blue">PDF / PPT / PPTX</span>
+              </div>
+
+              <input type="file" id="mcq-file-input" accept=".pdf,.ppt,.pptx" style="display: none;" onchange="GrowGovApp.handleFileUpload(event)">
+              <div class="upload-dropzone" onclick="document.getElementById('mcq-file-input').click()" style="cursor: pointer;">
+                <div class="upload-icon-circle">📄</div>
+                <div style="font-weight: 800; font-size: 15px; color: #0f172a;">Drag & Drop Syllabus Material</div>
+                <div style="font-size: 12.5px; color: #64748b;">Supports PDF, PPT, PPTX up to 50MB</div>
+                <button type="button" class="btn btn-secondary btn-sm" style="margin-top: 6px;" onclick="event.stopPropagation(); document.getElementById('mcq-file-input').click()">Browse File</button>
+              </div>
+
+              <!-- Pre-attached Document Pill -->
+              <div class="uploaded-file-card" id="uploaded-file-card">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-size: 24px;" id="uploaded-doc-icon">📑</span>
+                  <div>
+                    <div style="font-weight: 700; font-size: 13px; color: #0f172a;" id="uploaded-doc-name">MoSPI_Data_Visualization_Guidelines_v3.pdf</div>
+                    <div style="font-size: 11px; color: #64748b;" id="uploaded-doc-meta">4.2 MB • 48 Pages • Indexed into Vector DB</div>
+                  </div>
+                </div>
+                <span class="badge badge-nogap" id="uploaded-doc-status">Ready</span>
+              </div>
+            </div>
+
+            <!-- Right Side: Generation Parameters Form -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <span>⚙️</span> Generate MCQs with AI
+                </h3>
+                <span class="badge badge-critical">Target: Data Viz</span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 18px;">
+                <div class="form-group">
+                  <label class="form-label" for="mcq-competency-select">Select Competency</label>
+                  <select id="mcq-competency-select" class="form-select">
+                    <option value="Data Visualization" selected>Data Visualization (Critical Gap: 40%)</option>
+                    <option value="Digital Governance">Digital Governance (High Gap: 20%)</option>
+                    <option value="Statistical Analysis">Statistical Analysis (Medium Gap: 10%)</option>
+                    <option value="Data Management">Data Management (Medium Gap: 10%)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="mcq-topic-select">Select Topic</label>
+                  <select id="mcq-topic-select" class="form-select">
+                    <option value="Charts & Executive Ministry Dashboards" selected>Charts & Executive Ministry Dashboards</option>
+                    <option value="Tableau & Power BI Connectors">Tableau & Power BI Connectors for NIC Servers</option>
+                    <option value="Data Storytelling for Policy Briefs">Data Storytelling for Policy Briefs & Press Releases</option>
+                    <option value="Accessible Visualizations (GIGW)">Accessible Visualizations (GIGW & WCAG 2.1 AA)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Select Difficulty</label>
+                  <div class="pill-radio-group">
+                    <input type="radio" id="diff-easy" name="mcq-diff" class="pill-radio-input" value="Easy">
+                    <label for="diff-easy" class="pill-radio-label">Easy</label>
+
+                    <input type="radio" id="diff-med" name="mcq-diff" class="pill-radio-input" value="Medium" checked>
+                    <label for="diff-med" class="pill-radio-label">Medium</label>
+
+                    <input type="radio" id="diff-hard" name="mcq-diff" class="pill-radio-input" value="Hard">
+                    <label for="diff-hard" class="pill-radio-label">Hard</label>
+
+                    <input type="radio" id="diff-adaptive" name="mcq-diff" class="pill-radio-input" value="Adaptive">
+                    <label for="diff-adaptive" class="pill-radio-label" style="border-color: #0284c7; color: #0284c7;">⚡ Adaptive</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Number of Questions</label>
+                  <div class="pill-radio-group">
+                    <input type="radio" id="count-5" name="mcq-count" class="pill-radio-input" value="5">
+                    <label for="count-5" class="pill-radio-label">5</label>
+
+                    <input type="radio" id="count-10" name="mcq-count" class="pill-radio-input" value="10" checked>
+                    <label for="count-10" class="pill-radio-label">10 Questions</label>
+
+                    <input type="radio" id="count-15" name="mcq-count" class="pill-radio-input" value="15">
+                    <label for="count-15" class="pill-radio-label">15</label>
+
+                    <input type="radio" id="count-20" name="mcq-count" class="pill-radio-input" value="20">
+                    <label for="count-20" class="pill-radio-label">20</label>
+                  </div>
+                </div>
+
+                <button type="button" class="btn btn-primary btn-lg" id="btn-generate-mcqs-trigger" onclick="runAIMCQGeneration()" style="margin-top: 8px;">
+                  <span>🤖 GENERATE MCQs WITH AI &rarr;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Assessment Ready View (Shown ONLY after MCQs are generated) -->
+          <div id="mcq-ready-view" class="card" style="display: none; max-width: 680px; margin: 0 auto; padding: 36px 32px;">
+            <div style="text-align: center; margin-bottom: 24px;">
+              <div style="width: 60px; height: 60px; background: #ecfdf5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-size: 26px; color: #059669; border: 1.5px solid #a7f3d0;">
+                ✓
+              </div>
+              <span class="badge badge-nogap" style="margin-bottom: 8px;">AI Synthesis Complete</span>
+              <h2 style="font-size: 26px; font-weight: 800; color: #0f172a; margin-bottom: 6px;">Assessment Ready</h2>
+              <p style="font-size: 13.5px; color: #64748b;">
+                AI has successfully synthesized adaptive questions matching your competency profile.
+              </p>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 22px; margin-bottom: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Competency</div>
+                <div id="ready-competency-val" style="font-size: 15px; font-weight: 800; color: #0f172a; margin-top: 4px;">Data Visualization</div>
+              </div>
+
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Topic</div>
+                <div id="ready-topic-val" style="font-size: 14.5px; font-weight: 800; color: #0f172a; margin-top: 4px;">Charts & Executive Ministry Dashboards</div>
+              </div>
+
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Difficulty</div>
+                <div id="ready-difficulty-val" style="font-size: 14.5px; font-weight: 800; color: #2563eb; margin-top: 4px;">Medium</div>
+              </div>
+
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Number of Questions</div>
+                <div id="ready-questions-val" style="font-size: 14.5px; font-weight: 800; color: #0f172a; margin-top: 4px;">10 Questions</div>
+              </div>
+
+              <div style="grid-column: span 2; border-top: 1px solid #e2e8f0; padding-top: 14px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Estimated Time</div>
+                  <div id="ready-time-val" style="font-size: 14.5px; font-weight: 800; color: #0f172a; margin-top: 4px;">10 Minutes</div>
+                </div>
+                <span class="badge badge-blue">iGOT Framework Calibrated</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn-primary btn-lg" id="btn-start-assessment-ready" onclick="GrowGovApp.startGeneratedAssessment()" style="min-width: 260px;">
+                <span>START ASSESSMENT &rarr;</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- =====================================================================
+             PAGE 8: ADAPTIVE ASSESSMENT
+             ===================================================================== -->
+        <section id="page-assessment" class="page-view">
+          <div class="assessment-container">
+            <!-- Assessment Status Bar -->
+            <div class="assessment-meta-bar">
+              <div>
+                <h2 style="font-size: 18px; font-weight: 800; color: #0f172a;">Data Visualization & Dashboard Mastery Assessment</h2>
+                <div style="display: flex; gap: 8px; align-items: center; margin-top: 4px;">
+                  <span class="badge badge-blue" id="assessment-adaptive-tag">Adaptive: Dynamic</span>
+                  <span style="font-size: 12px; color: #64748b;">Target Benchmark: 80%</span>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="text-align: right;">
+                  <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Time Remaining</div>
+                  <div style="font-size: 18px; font-weight: 800; color: #1d4ed8; font-family: monospace;" id="assessment-timer-display">14:40</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Progress Bar & Question Dots Navigation -->
+            <div class="card" style="padding: 16px 24px; margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 700; margin-bottom: 8px;">
+                <span id="assessment-q-counter">Question 1 of 10</span>
+                <span style="color: #1d4ed8;">Progress</span>
+              </div>
+              <div class="progress-bar-container" style="height: 6px; margin-bottom: 14px;">
+                <div class="progress-bar-fill" id="assessment-progress-fill" style="width: 10%;"></div>
+              </div>
+              <div class="question-nav-dots" id="assessment-nav-dots">
+                <!-- Dots rendered via JS -->
+              </div>
+            </div>
+
+            <!-- Active Question Card -->
+            <div class="question-card">
+              <div class="question-prompt" id="assessment-question-text">
+                Loading question...
+              </div>
+
+              <!-- Options List A/B/C/D -->
+              <div class="options-list" id="assessment-options-list">
+                <!-- Options rendered dynamically -->
+              </div>
+
+              <!-- Action Controls -->
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 32px; border-top: 1px solid #f1f5f9; padding-top: 20px;">
+                <button type="button" class="btn btn-secondary" id="btn-assessment-prev" onclick="GrowGovApp.prevQuestion()">
+                  &larr; Previous
+                </button>
+
+                <div style="display: flex; gap: 10px;">
+                  <button type="button" class="btn btn-primary" id="btn-assessment-next" onclick="GrowGovApp.nextQuestion()">
+                    Next &rarr;
+                  </button>
+                  <button type="button" class="btn btn-success" id="btn-assessment-submit" style="display: none;" onclick="GrowGovApp.submitAssessmentForm()">
+                    SUBMIT ASSESSMENT &rarr;
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- =====================================================================
+             PAGE 9: ASSESSMENT RESULT & UPDATED COMPETENCY
+             ===================================================================== -->
+        <section id="page-assessment-result" class="page-view">
+          <div class="assessment-container">
+            <!-- Header Card -->
+            <div class="result-header-card">
+              <div class="result-success-badge">
+                <span>✓</span> Assessment Completed
+              </div>
+              <h1 style="font-size: 28px; font-weight: 800; color: #065f46; margin-bottom: 6px;">
+                Assessment Completed
+              </h1>
+              <p style="font-size: 14px; color: #047857;">
+                Your performance has been evaluated by the Karmayogi Adaptive Engine and your cadre profile has been updated.
+              </p>
+            </div>
+
+            <!-- Scores Metrics Row -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-bottom: 24px;">
+              <div class="card" style="text-align: center; padding: 20px;">
+                <div style="font-size: 11.5px; font-weight: 700; color: #64748b; text-transform: uppercase;">Score</div>
+                <div style="font-size: 32px; font-weight: 800; color: #0f172a;" id="res-score-display">--/--</div>
+                <div style="font-size: 11.5px; color: #059669; font-weight: 600;" id="res-score-subtext">--% Accuracy</div>
+              </div>
+
+              <div class="card" style="text-align: center; padding: 20px;">
+                <div style="font-size: 11.5px; font-weight: 700; color: #64748b; text-transform: uppercase;">Competency</div>
+                <div style="font-size: 20px; font-weight: 800; color: #1d4ed8; margin-top: 6px;" id="res-competency-display">Data Visualization</div>
+                <div style="font-size: 11.5px; color: #64748b;">Core Role Benchmark: 80%</div>
+              </div>
+
+              <div class="card" style="text-align: center; padding: 20px;">
+                <div style="font-size: 11.5px; font-weight: 700; color: #64748b; text-transform: uppercase;">Accuracy</div>
+                <div style="font-size: 32px; font-weight: 800; color: #059669;" id="res-accuracy-display">--%</div>
+                <div style="font-size: 11.5px; color: #059669; font-weight: 600;" id="res-status-display">--</div>
+              </div>
+            </div>
+
+            <!-- THE CRITICAL HIGHLIGHT: VISUAL IMPROVEMENT INDICATOR (40% -> 62%) -->
+            <div class="competency-leap-card">
+              <div class="leap-stage">
+                <div class="leap-stage-label">Previous Competency</div>
+                <div class="leap-stage-val before" id="res-prev-comp">40%</div>
+                <span class="badge badge-critical" style="margin-top: 6px;">Critical Gap</span>
+              </div>
+
+              <div class="leap-arrow">
+                <span>&xrarr;</span>
+                <span class="leap-gain-pill" id="res-gain-pill">+22% Competency Gain!</span>
+              </div>
+
+              <div class="leap-stage">
+                <div class="leap-stage-label">Updated Competency</div>
+                <div class="leap-stage-val after" id="res-updated-comp">62%</div>
+                <span class="badge badge-high" style="margin-top: 6px; background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe;">Significant Leap</span>
+              </div>
+            </div>
+
+            <!-- Topics Breakdown (Strong vs Weak) -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 24px;">
+              <div class="card" style="border-left: 4px solid #10b981;">
+                <h4 style="font-size: 14px; font-weight: 800; color: #065f46; margin-bottom: 8px;">
+                  ✓ Strong Topics Demonstrated
+                </h4>
+                <ul style="font-size: 13px; color: #334155; padding-left: 18px; display: flex; flex-direction: column; gap: 4px;">
+                  <li>Chart Selection Principles (Line charts for time-series)</li>
+                  <li>Horizontal Bar Layouts for Ministry Departments</li>
+                  <li>Accessible Visualization & GIGW Standards</li>
+                  <li>Executive KPI Card Prioritization</li>
+                </ul>
+              </div>
+
+              <div class="card" style="border-left: 4px solid #f59e0b;">
+                <h4 style="font-size: 14px; font-weight: 800; color: #92400e; margin-bottom: 8px;">
+                  ⚠️ Topics for Continued Mastery
+                </h4>
+                <ul style="font-size: 13px; color: #334155; padding-left: 18px; display: flex; flex-direction: column; gap: 4px;">
+                  <li>Data-Ink Ratio Optimization in High-Density Tables</li>
+                  <li>Geospatial Choropleth Class Intervals (Quantile vs Natural Breaks)</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Next Step Recommendation Card -->
+            <div class="card" style="margin-bottom: 24px;">
+              <div class="card-header">
+                <h4 class="card-title">
+                  <span>🚀</span> Recommended Next Learning Step
+                </h4>
+                <span class="badge badge-blue">Roadmap to 80%</span>
+              </div>
+              <p style="font-size: 13.5px; color: #334155; line-height: 1.5; margin-bottom: 14px;">
+                You have advanced from <strong>40% to 62%</strong>! To completely close the remaining 18% deficit and reach the full 80% role benchmark for Statistical Officer, continue with:
+                <br>
+                <strong style="color: #1d4ed8;">Course: Advanced Data Visualization Level 2 (Interactive Power BI & Tableau Drilldowns)</strong>
+              </p>
+            </div>
+
+            <!-- Apply and Sync Actions -->
+            <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn-primary btn-lg" onclick="GrowGovApp.viewLearningRecommendation()">
+                <span>VIEW LEARNING RECOMMENDATION &rarr;</span>
+              </button>
+              <button type="button" class="btn btn-secondary btn-lg" onclick="GrowGovApp.applyUpdateAndProceed()">
+                <span>VIEW MY PROGRESS &rarr;</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- =====================================================================
+             PAGE 10: MY PROGRESS
+             ===================================================================== -->
+        <section id="page-my-progress" class="page-view">
+          <div class="page-title-bar">
+            <div class="page-title-group">
+              <h1>My Progress & Longitudinal Competency Trajectory</h1>
+              <p>Verified competency progression: Before Training vs After Training evaluations</p>
+            </div>
+            <span class="badge badge-nogap">iGOT National Registry Synced</span>
+          </div>
+
+          <!-- Top Stats Row -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon blue">🎓</div>
+              <div class="stat-details">
+                <span class="stat-label">Courses Completed</span>
+                <span class="stat-value" id="prog-courses-completed">3</span>
+                <span class="stat-subtext positive">+1 freshly certified</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon green">📝</div>
+              <div class="stat-details">
+                <span class="stat-label">Assessments Taken</span>
+                <span class="stat-value" id="prog-assessments-completed">4</span>
+                <span class="stat-subtext">All Adaptive Tests Passed</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon amber">⏱️</div>
+              <div class="stat-details">
+                <span class="stat-label">Learning Hours</span>
+                <span class="stat-value" id="prog-learning-hours">27.5 hrs</span>
+                <span class="stat-subtext">Self-paced modules</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon purple">🔥</div>
+              <div class="stat-details">
+                <span class="stat-label">Learning Streak</span>
+                <span class="stat-value" id="prog-learning-streak">13 Days</span>
+                <span class="stat-subtext positive">Consistent Learner</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Continuous Competency Trajectory Roadmap (40% -> 52% -> 62% -> Target 80%) -->
+          <div class="card" style="margin-bottom: 24px; background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%); border: 1px solid #bfdbfe;">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title" style="color: #1e3a8a;">
+                  <span>🎯</span> Continuous Competency Progression Tracker: Data Visualization
+                </h3>
+                <div class="card-subtitle">Cadre Roadmap: From Baseline to National Cadre Benchmark (80%)</div>
+              </div>
+              <span class="badge badge-blue">Karmayogi Cadre Trajectory</span>
+            </div>
+
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 10px; overflow-x: auto;">
+              <!-- Stage 1 -->
+              <div style="text-align: center; flex: 1; min-width: 110px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Baseline</div>
+                <div style="font-size: 20px; font-weight: 800; color: #ef4444; margin: 4px 0;">40%</div>
+                <span class="badge badge-critical" style="font-size: 10px;">Initial Audit</span>
+              </div>
+
+              <div style="color: #94a3b8; font-size: 18px; font-weight: 800;">&rarr;</div>
+
+              <!-- Stage 2 -->
+              <div style="text-align: center; flex: 1; min-width: 110px;">
+                <div style="font-size: 11px; font-weight: 700; color: #64748b; text-transform: uppercase;">Module 1</div>
+                <div style="font-size: 20px; font-weight: 800; color: #f59e0b; margin: 4px 0;">52%</div>
+                <span class="badge badge-high" style="font-size: 10px;">Course Passed</span>
+              </div>
+
+              <div style="color: #94a3b8; font-size: 18px; font-weight: 800;">&rarr;</div>
+
+              <!-- Stage 3 -->
+              <div style="text-align: center; flex: 1; min-width: 110px; background: #ffffff; border: 1.5px solid #2563eb; border-radius: 10px; padding: 8px;">
+                <div style="font-size: 11px; font-weight: 800; color: #1d4ed8; text-transform: uppercase;">Current Level</div>
+                <div style="font-size: 22px; font-weight: 800; color: #1d4ed8; margin: 2px 0;">62%</div>
+                <span class="badge badge-blue" style="font-size: 10px;">Verified by AI Test</span>
+              </div>
+
+              <div style="color: #94a3b8; font-size: 18px; font-weight: 800;">&rarr;</div>
+
+              <!-- Stage 4 -->
+              <div style="text-align: center; flex: 1; min-width: 110px; border: 1.5px dashed #10b981; border-radius: 10px; padding: 8px; background: #f0fdf4;">
+                <div style="font-size: 11px; font-weight: 700; color: #047857; text-transform: uppercase;">Target Goal</div>
+                <div style="font-size: 20px; font-weight: 800; color: #059669; margin: 4px 0;">80%</div>
+                <span class="badge badge-nogap" style="font-size: 10px;">Cadre Benchmark</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BEFORE VS AFTER PROGRESS COMPARISON (KEY REQUIREMENT) -->
+          <div class="card" style="margin-bottom: 24px;">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">
+                  <span>📈</span> Before Training VS After Training Comparison
+                </h3>
+                <div class="card-subtitle">Direct capability expansion measured across verified assessments</div>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="GrowGovApp.navigateTo('assessment-result')">
+                Inspect Latest Assessment &rarr;
+              </button>
+            </div>
+
+            <!-- Injected by renderMyProgress -->
+            <div id="progress-comparison-chart-container"></div>
+          </div>
+
+          <!-- Verified Badges & Karmayogi Certifications -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">
+                <span>🏅</span> Verified Karmayogi Competency Badges
+              </h3>
+            </div>
+
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+              <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 12px; min-width: 260px;">
+                <span style="font-size: 32px;">📊</span>
+                <div>
+                  <div style="font-weight: 800; font-size: 13.5px; color: #1e3a8a;">MoSPI Data Visualizer Level 1</div>
+                  <div style="font-size: 11px; color: #3b82f6;" id="prog-recent-badge-score">Score: 80% • Issued Just Now</div>
+                </div>
+              </div>
+
+              <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 12px; min-width: 260px;">
+                <span style="font-size: 32px;">📈</span>
+                <div>
+                  <div style="font-weight: 800; font-size: 13.5px; color: #166534;">Statistical Methods Specialist</div>
+                  <div style="font-size: 11px; color: #15803d;">Score: 82% • Verified 14 Sep 2026</div>
+                </div>
+              </div>
+
+              <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 12px; min-width: 260px;">
+                <span style="font-size: 32px;">🛡️</span>
+                <div>
+                  <div style="font-weight: 800; font-size: 13.5px; color: #92400e;">NIC Cyber Hygiene Certified</div>
+                  <div style="font-size: 11px; color: #b45309;">Score: 92% • Verified 28 Aug 2026</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- =====================================================================
+             PAGE 11: ADMIN DASHBOARD (CADRE CONTROLLER VIEW)
+             ===================================================================== -->
+        <section id="page-admin-dashboard" class="page-view">
+          <div class="page-title-bar">
+            <div class="page-title-group">
+              <h1>Cadre Controller & Ministry Administrator Dashboard</h1>
+              <p>Aggregated civil service competency intelligence, department-wise skill deficits & training ROI</p>
+            </div>
+            <div class="page-actions">
+              <button class="btn btn-secondary btn-sm" onclick="window.showToast('Ministry Gap Intelligence PDF exported.', 'success')">
+                📥 Export Report (PDF)
+              </button>
+              <button class="btn btn-primary btn-sm" onclick="window.showToast('Mass assessment invite dispatched to 420 officers.', 'ai')">
+                ⚡ Discard Cadre Assessment
+              </button>
+            </div>
+          </div>
+
+          <!-- 5 Admin Top KPI Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon blue">👥</div>
+              <div class="stat-details">
+                <span class="stat-label">Total Officers</span>
+                <span class="stat-value" id="admin-total-emp">1,420</span>
+                <span class="stat-subtext">Across 18 Cadres</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon purple">🏛️</div>
+              <div class="stat-details">
+                <span class="stat-label">Departments</span>
+                <span class="stat-value" id="admin-total-dept">18</span>
+                <span class="stat-subtext">Central & Attached Offices</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon red">⚠️</div>
+              <div class="stat-details">
+                <span class="stat-label">Critical Skill Gaps</span>
+                <span class="stat-value" id="admin-crit-gaps" style="color: #dc2626;">84</span>
+                <span class="stat-subtext" style="color: #059669;">↓ -12% this month</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon amber">📚</div>
+              <div class="stat-details">
+                <span class="stat-label">Active Training Programs</span>
+                <span class="stat-value" id="admin-programs">42</span>
+                <span class="stat-subtext">iGOT Karmayogi Synced</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon green">🎯</div>
+              <div class="stat-details">
+                <span class="stat-label">Assessments Completed</span>
+                <span class="stat-value" id="admin-assessments">3,890</span>
+                <span class="stat-subtext positive">84.2% Pass Rate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Admin Charts Row -->
+          <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; margin-bottom: 24px;">
+            <!-- Department-wise Skill Gaps Chart -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <span>🏢</span> Department-wise Skill Gaps
+                </h3>
+                <span class="badge badge-critical">Critical vs High</span>
+              </div>
+              <div id="admin-dept-chart-container"></div>
+            </div>
+
+            <!-- Employee Competency Distribution -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <span>📊</span> Competency Distribution
+                </h3>
+                <span class="badge badge-blue">Cadre Overview</span>
+              </div>
+              <div id="admin-dist-chart-container"></div>
+            </div>
+          </div>
+
+          <!-- Employee Table -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">
+                <span>📋</span> Cadre Officers Competency Registry
+              </h3>
+              <div style="display: flex; gap: 8px;">
+                <input type="text" placeholder="Search officer by name, role or dept..." class="form-input" style="padding: 6px 12px; font-size: 12.5px; width: 260px;" oninput="window.showToast('Searching live officers database...', 'ai')">
+              </div>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Officer</th>
+                    <th>Department</th>
+                    <th>Job Role</th>
+                    <th>Competency Score</th>
+                    <th>Critical Gaps</th>
+                    <th>Training Progress</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-employees-tbody">
+                  <!-- Injected via renderAdminDashboard -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       MODALS & OVERLAYS
+       ========================================================================= -->
+
+
+  <!-- 2. AI MCQ GENERATION LOADING MODAL -->
+  <div class="modal-overlay" id="ai-generating-modal">
+    <div class="modal-content" style="max-width: 500px; padding: 32px; text-align: center;">
+      <div style="font-size: 40px; margin-bottom: 16px; animation: pulse 1s infinite;">🤖</div>
+      <h3 style="font-size: 20px; font-weight: 800; color: #0f172a; margin-bottom: 8px;">
+        AI is Synthesizing Adaptive MCQs
+      </h3>
+      <p style="font-size: 13.5px; color: #64748b; margin-bottom: 20px;" id="mcq-gen-step-text">
+        Analyzing MoSPI Data Visualization Guidelines (PDF)...
+      </p>
+
+      <div class="progress-bar-container" style="height: 8px; margin-bottom: 10px;">
+        <div class="progress-bar-fill" style="width: 85%;"></div>
+      </div>
+      <span style="font-size: 11.5px; color: #0284c7; font-weight: 700;">Bloom's Taxonomy Framework • NIC GovStack</span>
+    </div>
+  </div>
+
+  <!-- 3. COURSE SYLLABUS MODAL -->
+  <div class="modal-overlay" id="course-syllabus-modal">
+    <div class="modal-content" style="max-width: 620px; padding: 28px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+        <div>
+          <span class="badge badge-critical" style="margin-bottom: 6px;">Critical Competency Course</span>
+          <h3 style="font-size: 20px; font-weight: 800; color: #0f172a;" id="syllabus-course-title">
+            Advanced Data Visualization & Ministry Dashboards
+          </h3>
+        </div>
+        <button type="button" onclick="GrowGovApp.closeCourseModal()" style="background: none; border: none; font-size: 20px; cursor: pointer;">✕</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 14px; font-size: 13px;">
+        <div style="padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+          <strong>Module 1: Visual Grammar & Chart Typologies (1.5 hrs)</strong>
+          <div style="color: #64748b;">Selecting correct charts for continuous time-series, categorical comparisons, and geospatial distributions.</div>
+        </div>
+
+        <div style="padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+          <strong>Module 2: Government Dashboard Information Architecture (1.5 hrs)</strong>
+          <div style="color: #64748b;">Designing KPI cards, hierarchical state-to-district drill-downs, and GIGW color accessibility.</div>
+        </div>
+
+        <div style="padding: 12px; background: #eff6ff; border-radius: 8px; border: 1px solid #bfdbfe;">
+          <strong style="color: #1d4ed8;">Module 3: Hands-on Power BI & Tableau with MoSPI Data (2.0 hrs) [RECOMMENDED]</strong>
+          <div style="color: #1e40af;">Importing CSV/SQL datasets, DAX measures, automated refreshes, and export to executive PDF briefs.</div>
+        </div>
+
+        <div style="padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+          <strong>Module 4: Data Security & NDAP Compliance (1.0 hr)</strong>
+          <div style="color: #64748b;">Anonymization standards, differential privacy, and NIC server deployment guidelines.</div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px;">
+        <button type="button" class="btn btn-secondary" onclick="GrowGovApp.closeCourseModal()">Close</button>
+        <button type="button" class="btn btn-primary" onclick="GrowGovApp.closeCourseModal(); GrowGovApp.startLearningFlow('Data Visualization', 'Advanced Data Visualization')">
+          ⚡ Start Module Assessment
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Core Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

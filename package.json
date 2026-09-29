@@ -1,0 +1,19 @@
+{
+  "name": "growgov-ai",
+  "version": "1.0.0",
+  "description": "GrowGov AI – AI-Enabled Competency Development Platform for iGOT Karmayogi (SIH 2026)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "sih2026",
+    "igot-karmayogi",
+    "competency-framework",
+    "ai-learning",
+    "government"
+  ],
+  "author": "SIH 2026 Team",
+  "license": "MIT"
+}
